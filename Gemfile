@@ -11,6 +11,7 @@ gem 'sqlite3', '~> 1.4'
 gem 'puma', '~> 4.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
+gem 'annotate'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -35,6 +36,7 @@ group :development, :test do
   end
   gem 'factory_bot_rails'
   gem 'ffaker'
+  gem 'shoulda-matchers', require: false
 end
 
 group :development do

@@ -7,16 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 10.times do
-  user = User.create(
-    first_name: FFaker::Name.first_name,
-    last_name: FFaker::Name.last_name,
-    age: rand(18..65)
-  )
+  user = FactoryBot.create(:user)
 
-  contact = Contact.create(
-    phone: FFaker::PhoneNumberBR.phone_number,
-    user_id: user.id,
-    email: "#{user.first_name}@example.com",
-    is_whatsapp: true
-  )
+  contact = FactoryBot.create(:contact, user: user)
 end

@@ -103,6 +103,9 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2)
+    annotate (3.1.1)
+      activerecord (>= 3.2, < 7.0)
+      rake (>= 10.4, < 14.0)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
     builder (3.2.4)
@@ -180,6 +183,8 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     ruby_dep (1.5.0)
+    shoulda-matchers (4.4.1)
+      activesupport (>= 4.2.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -205,6 +210,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   bootsnap (>= 1.4.2)
   byebug
   factory_bot_rails
@@ -218,6 +224,7 @@ DEPENDENCIES
   rspec-mocks!
   rspec-rails!
   rspec-support!
+  shoulda-matchers
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3 (~> 1.4)
