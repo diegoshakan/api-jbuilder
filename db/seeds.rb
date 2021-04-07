@@ -9,5 +9,5 @@
 10.times do
   user = FactoryBot.create(:user)
 
-  contact = FactoryBot.create(:contact, user: user)
+  FactoryBot.create(:contact, user: user)
 end
