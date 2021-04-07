@@ -11,6 +11,7 @@
 #
 class User < ApplicationRecord
   has_many :contacts, dependent: :destroy
+  accepts_nested_attributes_for :contacts
 
   validates :first_name, :last_name, presence: true
 end

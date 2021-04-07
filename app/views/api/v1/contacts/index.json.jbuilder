@@ -1,1 +1,1 @@
-json.array! @contacts, partial: 'contact', as: :contact
+json.array! @contacts, partial: 'api/v1/contacts/contact', as: :contact

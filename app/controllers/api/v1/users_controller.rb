@@ -7,7 +7,6 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
-    render json: @user
   end
 
   def create
@@ -30,7 +29,12 @@ class Api::V1::UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :age)
+      params.require(:user).permit(
+        :first_name, :last_name, :age,
+        contacts_attributes: [
+          :phone, :email, :is_whatsapp
+        ]
+      )
     end
 
     def set_user
