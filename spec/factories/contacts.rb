@@ -14,6 +14,6 @@ FactoryBot.define do
   factory :contact do
     phone { FFaker::PhoneNumberBR.international_home_work_phone_number }
     email { FFaker::Internet.email }
-    is_whatsapp { true }
+    is_whatsapp { FFaker::Boolean.random }
   end
 end

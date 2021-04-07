@@ -1,22 +1,23 @@
 # == Route Map
 #
 #                                Prefix Verb   URI Pattern                                                                              Controller#Action
+#                  api_v1_user_contacts GET    /api/v1/users/:user_id/contacts(.:format)                                                api/v1/contacts#index
+#                                       POST   /api/v1/users/:user_id/contacts(.:format)                                                api/v1/contacts#create
+#                   api_v1_user_contact GET    /api/v1/users/:user_id/contacts/:id(.:format)                                            api/v1/contacts#show
+#                                       PATCH  /api/v1/users/:user_id/contacts/:id(.:format)                                            api/v1/contacts#update
+#                                       PUT    /api/v1/users/:user_id/contacts/:id(.:format)                                            api/v1/contacts#update
+#                                       DELETE /api/v1/users/:user_id/contacts/:id(.:format)                                            api/v1/contacts#destroy
 #                          api_v1_users GET    /api/v1/users(.:format)                                                                  api/v1/users#index
 #                                       POST   /api/v1/users(.:format)                                                                  api/v1/users#create
 #                           api_v1_user GET    /api/v1/users/:id(.:format)                                                              api/v1/users#show
 #                                       PATCH  /api/v1/users/:id(.:format)                                                              api/v1/users#update
 #                                       PUT    /api/v1/users/:id(.:format)                                                              api/v1/users#update
 #                                       DELETE /api/v1/users/:id(.:format)                                                              api/v1/users#destroy
-#                       api_v1_contacts GET    /api/v1/contacts(.:format)                                                               api/v1/contacts#index
-#                                       POST   /api/v1/contacts(.:format)                                                               api/v1/contacts#create
-#                        api_v1_contact GET    /api/v1/contacts/:id(.:format)                                                           api/v1/contacts#show
-#                                       PATCH  /api/v1/contacts/:id(.:format)                                                           api/v1/contacts#update
-#                                       PUT    /api/v1/contacts/:id(.:format)                                                           api/v1/contacts#update
-#                                       DELETE /api/v1/contacts/:id(.:format)                                                           api/v1/contacts#destroy
-#         rails_mandrill_inbound_emails POST   /rails/action_mailbox/mandrill/inbound_emails(.:format)                                  action_mailbox/ingresses/mandrill/inbound_emails#create
 #         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
 #            rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
 #         rails_sendgrid_inbound_emails POST   /rails/action_mailbox/sendgrid/inbound_emails(.:format)                                  action_mailbox/ingresses/sendgrid/inbound_emails#create
+#   rails_mandrill_inbound_health_check GET    /rails/action_mailbox/mandrill/inbound_emails(.:format)                                  action_mailbox/ingresses/mandrill/inbound_emails#health_check
+#         rails_mandrill_inbound_emails POST   /rails/action_mailbox/mandrill/inbound_emails(.:format)                                  action_mailbox/ingresses/mandrill/inbound_emails#create
 #          rails_mailgun_inbound_emails POST   /rails/action_mailbox/mailgun/inbound_emails/mime(.:format)                              action_mailbox/ingresses/mailgun/inbound_emails#create
 #        rails_conductor_inbound_emails GET    /rails/conductor/action_mailbox/inbound_emails(.:format)                                 rails/conductor/action_mailbox/inbound_emails#index
 #                                       POST   /rails/conductor/action_mailbox/inbound_emails(.:format)                                 rails/conductor/action_mailbox/inbound_emails#create
@@ -34,8 +35,9 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :users
-      resources :contacts
+      resources :users do
+        resources :contacts
+      end
     end
   end
 end
